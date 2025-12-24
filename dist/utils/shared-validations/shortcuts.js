@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.optionalFloat = exports.requiredFloat = exports.optionalInteger = exports.requiredInteger = exports.optionalEmail = exports.requiredEmail = exports.optionalBoolean = exports.requiredBoolean = exports.optionalNumber = exports.requiredNumber = exports.optionalDate = exports.requiredDate = exports.optionalString = exports.requiredString = void 0;
+const joi_1 = __importDefault(require("joi"));
+exports.requiredString = joi_1.default.string().required();
+exports.optionalString = joi_1.default.string().allow(null, '');
+exports.requiredDate = joi_1.default.date().iso().required();
+exports.optionalDate = joi_1.default.date().iso().optional();
+exports.requiredNumber = joi_1.default.number().required();
+exports.optionalNumber = joi_1.default.number().optional();
+exports.requiredBoolean = joi_1.default.boolean().required();
+exports.optionalBoolean = joi_1.default.boolean().optional();
+exports.requiredEmail = joi_1.default.string().email().required();
+exports.optionalEmail = joi_1.default.string().email().optional();
+exports.requiredInteger = joi_1.default.number().integer().required();
+exports.optionalInteger = joi_1.default.number().integer().optional();
+exports.requiredFloat = joi_1.default.number().required();
+exports.optionalFloat = joi_1.default.number().optional();

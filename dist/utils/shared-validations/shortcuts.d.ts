@@ -1,0 +1,15 @@
+import Joi from 'joi';
+export declare const requiredString: Joi.StringSchema<string>;
+export declare const optionalString: Joi.StringSchema<string>;
+export declare const requiredDate: Joi.DateSchema<Date>;
+export declare const optionalDate: Joi.DateSchema<Date>;
+export declare const requiredNumber: Joi.NumberSchema<number>;
+export declare const optionalNumber: Joi.NumberSchema<number>;
+export declare const requiredBoolean: Joi.BooleanSchema<boolean>;
+export declare const optionalBoolean: Joi.BooleanSchema<boolean>;
+export declare const requiredEmail: Joi.StringSchema<string>;
+export declare const optionalEmail: Joi.StringSchema<string>;
+export declare const requiredInteger: Joi.NumberSchema<number>;
+export declare const optionalInteger: Joi.NumberSchema<number>;
+export declare const requiredFloat: Joi.NumberSchema<number>;
+export declare const optionalFloat: Joi.NumberSchema<number>;
