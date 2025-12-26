@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { ObjectSchema } from 'joi';
-import { errorResponse } from '../utils/helper/response_helper.js';
+import { errorResponse } from '../utils/helper/response_helper';
 
 export const validate = (schema: ObjectSchema) => {
   return (req: Request, res: Response, next: NextFunction): void => {

@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { requiredString } from './shortcuts.js';
+import { requiredString } from './shortcuts';
 
 export const idSchema = (value: string) =>
   Joi.string()

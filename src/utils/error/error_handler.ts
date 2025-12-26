@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { errorResponse } from '../helper/response_helper.js';
-import { CustomError } from './custom_error_handler.js';
-import { logger } from '../logger/logger.js';
+import { errorResponse } from '../helper/response_helper';
+import { CustomError } from './custom_error_handler';
+import { logger } from '../logger/logger';
 const errorHandler = (
   err: Error,
   req: Request,

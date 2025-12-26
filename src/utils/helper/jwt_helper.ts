@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { ForbiddenError } from '../error/custom_error_handler.js';
+import { ForbiddenError } from '../error/custom_error_handler';
 
 dotenv.config();
 

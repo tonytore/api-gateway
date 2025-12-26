@@ -10,7 +10,7 @@ export async function connectRabbitMQ() {
   await channel.assertExchange('blog.exchange', 'topic', { durable: true });
 }
 
-export async function publish(
+export async function postPublish(
   exchangeName: string,
   queueName: string,
   message: object,
