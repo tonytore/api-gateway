@@ -66,4 +66,3 @@ postRouter.delete(
     return successResponse(res, 'Post deletion requested', null, 202);
   },
 );
-
