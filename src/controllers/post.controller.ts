@@ -9,12 +9,14 @@ export const postController = {
     createPost: catchAsync(async (req: Request, res: Response) => {
         const publishedPost = await postPublish('post.exchange', 'post.create', {
             action: 'post.create',
-            data: req.body,
-            meta: {
-                userId: req.user!.id,
-                role: req.user!.role,
-                requestId: crypto.randomUUID(),
-                timestamp: Date.now(),
+            payload: {
+                data: req.body,
+                meta: {
+                    userId: req.user!.id,
+                    role: req.user!.role,
+                    requestId: crypto.randomUUID(),
+                    timestamp: Date.now(),
+                },
             },
         });
 
@@ -22,14 +24,16 @@ export const postController = {
     }),
 
     updatePost: catchAsync(async (req: Request, res: Response) => {
-        await postPublish('blog.exchange', 'post.update', {
+        await postPublish('post.exchange', 'post.update', {
             action: 'post.update',
-            data: { id: req.params.id, ...req.body },
-            meta: {
-                userId: req.user!.id,
-                role: req.user!.role,
-                requestId: crypto.randomUUID(),
-                timestamp: Date.now(),
+            payload: {
+                data: { id: req.params.id, ...req.body },
+                meta: {
+                    userId: req.user!.id,
+                    role: req.user!.role,
+                    requestId: crypto.randomUUID(),
+                    timestamp: Date.now(),
+                },
             },
         });
 
@@ -37,14 +41,16 @@ export const postController = {
     }),
 
     deletePost: catchAsync(async (req: Request, res: Response) => {
-        await postPublish('blog.exchange', 'post.delete', {
+        await postPublish('post.exchange', 'post.delete', {
             action: 'post.delete',
-            data: { id: req.params.id },
-            meta: {
-                userId: req.user!.id,
-                role: req.user!.role,
-                requestId: crypto.randomUUID(),
-                timestamp: Date.now(),
+            payload: {
+                data: { id: req.params.id },
+                meta: {
+                    userId: req.user!.id,
+                    role: req.user!.role,
+                    requestId: crypto.randomUUID(),
+                    timestamp: Date.now(),
+                },
             },
         });
 

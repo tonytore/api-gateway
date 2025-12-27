@@ -132,3 +132,24 @@
 {"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T06:37:45.974Z"}
 {"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T06:37:46.072Z"}
 {"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T06:38:18.513Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T09:03:18.828Z"}
+{"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T09:05:33.461Z"}
+{"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T09:05:33.564Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T09:09:02.148Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T10:32:50.461Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T10:34:34.059Z"}
+{"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T10:35:07.533Z"}
+{"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T10:35:07.637Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T10:39:50.026Z"}
+{"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T10:46:45.214Z"}
+{"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T10:46:45.333Z"}
+{"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T10:46:51.694Z"}
+{"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T10:46:51.795Z"}
+{"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T10:48:56.345Z"}
+{"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T10:48:56.446Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T10:49:24.327Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T11:17:16.769Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T11:25:14.616Z"}
+{"level":"info","message":"ID","service":"api-gateway","timestamp":"2025-12-27T11:37:48.836Z"}
+{"level":"info","message":"API Gateway running on port 3003","service":"api-gateway","timestamp":"2025-12-27T11:37:48.935Z"}
+{"level":"info","message":"Cookies received:","service":"api-gateway","timestamp":"2025-12-27T11:39:57.775Z"}

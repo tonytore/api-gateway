@@ -7,7 +7,7 @@ export async function connectRabbitMQ() {
   const URL = appConfig.RABBITMQ_URL;
   const connection = await amqp.connect(URL);
   channel = await connection.createChannel();
-  await channel.assertExchange('blog.exchange', 'topic', { durable: true });
+  await channel.assertExchange('post.exchange', 'topic', { durable: true });
 }
 
 export async function postPublish(
