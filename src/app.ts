@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { connectRabbitMQ } from './rabbitmq/connection';
 import { postRouter } from './routes/post.routes';
 import { logger } from './utils/logger/logger';
+import authProxy from './routes/auth.proxy';
 dotenv.config();
 
 async function bootstrap() {
@@ -12,7 +13,9 @@ async function bootstrap() {
     app.use(cookieParser());
 
     await connectRabbitMQ(); // VERY IMPORTANT
+    
 
+app.use("/auth", authProxy);
     app.use('/api', postRouter);
 
     app.listen(3003, () => {

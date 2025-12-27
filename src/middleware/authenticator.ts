@@ -10,6 +10,9 @@ export async function authMiddleware(
 ) {
   const accessToken = req.cookies?.accessToken;
 
+  logger.info("Cookies received:", accessToken);
+
+
   if (!accessToken) {
     throw new UnauthenticatedError(
       'Please log in to access this resource',
