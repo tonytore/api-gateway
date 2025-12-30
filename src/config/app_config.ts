@@ -2,6 +2,7 @@ import env from 'dotenv';
 env.config();
 
 const appConfig = {
+  AUTH_SERVICE_URL: process.env.AUTH_SERVICE_URL || 'http://localhost:3001',
   APP_NAME: process.env.APP_NAME,
   NODE_ENV: process.env.NODE_ENV as 'development' | 'production',
   LOG_LEVEL: process.env.LOG_LEVEL,
@@ -16,7 +17,7 @@ const appConfig = {
   ACCESS_COOKIE_OPTIONS: {
     httpOnly: true,
     secure: false,
-    sameSite: "lax" as const,
+    sameSite: 'lax' as const,
     maxAge: 54000000, // 15 minutes in milliseconds
   },
 };

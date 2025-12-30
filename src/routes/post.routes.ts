@@ -1,27 +1,16 @@
-import { authMiddleware } from '../middleware/authenticator';
 import { Router } from 'express';
-import { validate } from '../middleware/validator';
-import { createPostSchema, updatePostSchema } from '../schemas/post.schema';
-import { postController } from '../controllers/post.controller';
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import { requireAuth } from '../middleware/authenticator';
 
-export const postRouter = Router();
+const postRouter = Router();
 
-postRouter.post(
+postRouter.use(
   '/posts',
-  authMiddleware,
-  validate(createPostSchema),
-  postController.createPost,
+  requireAuth,
+  createProxyMiddleware({
+    target: 'http://localhost:4002',
+    changeOrigin: true,
+  }),
 );
 
-postRouter.put(
-  '/posts/:id',
-  authMiddleware,
-  validate(updatePostSchema),
-  postController.updatePost,
-);
-
-postRouter.delete(
-  '/posts/:id',
-  authMiddleware,
-  postController.deletePost,
-);
+export default postRouter;

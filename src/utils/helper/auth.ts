@@ -5,6 +5,7 @@ import { UnauthenticatedError } from '../error/custom_error_handler';
 interface AccessTokenPayload {
   userId: string;
   role: string;
+  sessionId: string;
 }
 
 const { ACCESS_TOKEN_SECRET } = appConfig;

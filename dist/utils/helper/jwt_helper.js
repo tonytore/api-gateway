@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.JwtService = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const custom_error_handler_js_1 = require("../error/custom_error_handler.js");
+const custom_error_handler_1 = require("../error/custom_error_handler");
 dotenv_1.default.config();
 const { ACCESS_TOKEN_SECRET, ACCESS_TOKEN_EXPIRY, REFRESH_TOKEN_SECRET, REFRESH_TOKEN_EXPIRY, } = process.env;
 class JwtService {
@@ -23,7 +23,7 @@ class JwtService {
         const decoded = await new Promise((resolve, reject) => {
             const callback = (err, decoded) => {
                 if (err) {
-                    reject(new custom_error_handler_js_1.ForbiddenError('You do not have permission', 'Forbidden'));
+                    reject(new custom_error_handler_1.ForbiddenError('You do not have permission', 'Forbidden'));
                 }
                 else {
                     resolve(decoded);

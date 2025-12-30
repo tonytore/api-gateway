@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.jobType = exports.certificateStatus = exports.grade = exports.currentYear = exports.cgpa = exports.maritalStatus = exports.gender = exports.timestamps = exports.address = exports.emailSchema = exports.phoneNumberSchema = exports.optIdSchema = exports.certificateNumberSchema = exports.idSchema = void 0;
 const joi_1 = __importDefault(require("joi"));
-const shortcuts_js_1 = require("./shortcuts.js");
+const shortcuts_1 = require("./shortcuts");
 const idSchema = (value) => joi_1.default.string()
     .pattern(/^[0-9a-fA-F]{24}$/)
     .required()
@@ -67,4 +67,4 @@ exports.cgpa = joi_1.default.number().min(0).max(4).precision(2).required();
 exports.currentYear = new Date().getFullYear();
 exports.grade = joi_1.default.string().valid('A_PLUS', 'A', 'A_MINUS', 'B_PLUS', 'B', 'B_MINUS', 'C_PLUS', 'C', 'C_MINUS', 'D_PLUS', 'D', 'D_MINUS', 'F');
 exports.certificateStatus = joi_1.default.string().valid('GRADUATED', 'LEARNING', 'FAILED');
-exports.jobType = shortcuts_js_1.requiredString.valid('FULL-TIME', 'PART-TIME', 'MIXED');
+exports.jobType = shortcuts_1.requiredString.valid('FULL-TIME', 'PART-TIME', 'MIXED');

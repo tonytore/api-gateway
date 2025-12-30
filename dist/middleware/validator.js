@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validate = void 0;
 const http_status_codes_1 = require("http-status-codes");
-const response_helper_js_1 = require("../utils/helper/response_helper.js");
+const response_helper_1 = require("../utils/helper/response_helper");
 const validate = (schema) => {
     return (req, res, next) => {
         const errors = {};
@@ -22,7 +22,7 @@ const validate = (schema) => {
                     errors[field] = [];
                 errors[field].push(err.message.replace(/"/g, ''));
             });
-            (0, response_helper_js_1.errorResponse)(res, 'error.validationFailed', errors, http_status_codes_1.StatusCodes.BAD_REQUEST);
+            (0, response_helper_1.errorResponse)(res, 'error.validationFailed', errors, http_status_codes_1.StatusCodes.BAD_REQUEST);
             return;
         }
         next();
