@@ -5,7 +5,7 @@ import { connectRabbitMQ } from './rabbitmq/connection';
 import { logger } from './utils/logger/logger';
 import { gatewayAuth } from './middleware/authenticator';
 import postRouter from './routes/post.routes';
-import authRouter from './routes/auth.route';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 dotenv.config();
 
 async function bootstrap() {
@@ -19,7 +19,21 @@ async function bootstrap() {
 
   app.get('/favicon.ico', (_req, res) => res.status(204).end());
 
-  app.use('/api/auth', authRouter);
+  app.use(
+    '/api/auth',
+    createProxyMiddleware({
+      target: 'http://localhost:4000',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/': '/auth/',
+      },
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Basic ' + Buffer.from('gateway:gatewaySecret').toString('base64'),
+      },
+    }),
+  );
   app.use('/api', postRouter);
 
   app.listen(4001, () => {

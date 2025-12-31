@@ -4,6 +4,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 const authRouter = Router();
 
 authRouter.use(
+  '/api/auth',
   createProxyMiddleware({
     target: 'http://localhost:4000',
     changeOrigin: true,

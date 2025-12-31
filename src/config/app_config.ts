@@ -5,7 +5,7 @@ const appConfig = {
   AUTH_SERVICE_URL: process.env.AUTH_SERVICE_URL || 'http://localhost:3001',
   APP_NAME: process.env.APP_NAME,
   NODE_ENV: process.env.NODE_ENV as 'development' | 'production',
-  LOG_LEVEL: process.env.LOG_LEVEL,
+  LOG_LEVEL: process.env.LOG_LEVEL || 'info',
   LOKI_URL: process.env.LOKI_URL || 'http://loki:3100',
   ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET,
