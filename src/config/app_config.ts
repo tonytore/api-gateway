@@ -20,6 +20,7 @@ const appConfig = {
     sameSite: 'lax' as const,
     maxAge: 54000000, // 15 minutes in milliseconds
   },
+  INTERNAL_SERVICE_TOKEN: process.env.INTERNAL_SERVICE_TOKEN,
 };
 
 export default appConfig;

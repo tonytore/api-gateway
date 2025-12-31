@@ -6,6 +6,7 @@ import { logger } from './utils/logger/logger';
 import { gatewayAuth } from './middleware/authenticator';
 import postRouter from './routes/post.routes';
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import appConfig from './config/app_config';
 dotenv.config();
 
 async function bootstrap() {
@@ -28,9 +29,7 @@ async function bootstrap() {
         '^/': '/auth/',
       },
       headers: {
-        accept: 'application/json',
-        Authorization:
-          'Basic ' + Buffer.from('gateway:gatewaySecret').toString('base64'),
+        'X-Internal-Token': appConfig.INTERNAL_SERVICE_TOKEN!,
       },
     }),
   );
