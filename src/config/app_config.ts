@@ -2,7 +2,7 @@ import env from 'dotenv';
 env.config();
 
 const appConfig = {
-  AUTH_SERVICE_URL: process.env.AUTH_SERVICE_URL || 'http://localhost:3001',
+  AUTH_SERVICE_URL: process.env.AUTH_SERVICE_URL || 'http://localhost:4000',
   APP_NAME: process.env.APP_NAME,
   NODE_ENV: process.env.NODE_ENV as 'development' | 'production',
   LOG_LEVEL: process.env.LOG_LEVEL || 'info',
@@ -21,6 +21,9 @@ const appConfig = {
     maxAge: 54000000, // 15 minutes in milliseconds
   },
   INTERNAL_SERVICE_TOKEN: process.env.INTERNAL_SERVICE_TOKEN,
+  REDIS_HOST: process.env.REDIS_HOST || 'localhost',
+  REDIS_PORT: Number(process.env.REDIS_PORT) || 6379,
+  REDIS_PASSWORD: process.env.REDIS_PASSWORD,
 };
 
 export default appConfig;
