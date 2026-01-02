@@ -1,8 +1,9 @@
 import { Router } from 'express';
+import { requireAuth } from '@/middleware/authenticator';
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { requireAuth } from '../middleware/authenticator';
 
 const postRouter = Router();
+
 
 postRouter.use(
   '/posts',

@@ -1,5 +1,5 @@
 import amqp from 'amqplib';
-import appConfig from '../config/app_config';
+import appConfig from '@/config/app_config';
 
 let channel: amqp.Channel;
 
@@ -8,16 +8,21 @@ export async function connectRabbitMQ() {
   const connection = await amqp.connect(URL);
   channel = await connection.createChannel();
   await channel.assertExchange('post.exchange', 'topic', { durable: true });
+
+  return channel;
 }
 
-export async function postPublish(
-  exchangeName: string,
-  queueName: string,
+export function publishPostCommand(
+  routingKey: 'post.create' | 'post.update' | 'post.delete',
   message: object,
 ) {
-  return channel.publish(
-    exchangeName,
-    queueName,
+  if (!channel) {
+    throw new Error('RabbitMQ channel not initialized');
+  }
+
+  channel.publish(
+    'post.exchange',
+    routingKey,
     Buffer.from(JSON.stringify(message)),
     { persistent: true },
   );

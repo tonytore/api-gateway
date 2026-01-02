@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { postPublish } from '../rabbitmq/connection';
+import { publishPostCommand } from '@/rabbitmq/connection';
 import crypto from 'crypto';
-import { successResponse } from '../utils/helper/response_helper';
-import catchAsync from '../utils/helper/catch_async';
+import { successResponse } from '@/utils/helper/response_helper';
+import catchAsync from '@/utils/helper/catch_async';
 
 export const postController = {
   createPost: catchAsync(async (req: Request, res: Response) => {
-    const publishedPost = await postPublish('post.exchange', 'post.create', {
+    const publishedPost = await publishPostCommand('post.create', {
       action: 'post.create',
       payload: {
         data: req.body,
@@ -23,7 +23,7 @@ export const postController = {
   }),
 
   updatePost: catchAsync(async (req: Request, res: Response) => {
-    await postPublish('post.exchange', 'post.update', {
+    await publishPostCommand('post.update', {
       action: 'post.update',
       payload: {
         data: { id: req.params.id, ...req.body },
@@ -40,7 +40,7 @@ export const postController = {
   }),
 
   deletePost: catchAsync(async (req: Request, res: Response) => {
-    await postPublish('post.exchange', 'post.delete', {
+    await publishPostCommand('post.delete', {
       action: 'post.delete',
       payload: {
         data: { id: req.params.id },
