@@ -30,7 +30,9 @@ async function connectWithRetry() {
 async function bootstrap() {
   const app = express();
   app.use(cookieParser());
+    app.use(express.json());
 
+ app.use(gatewayAuth);
   await connectWithRetry(); // VERY IMPORTANT
 
   app.get('/favicon.ico', (_req, res) => res.status(204).end());
@@ -49,11 +51,10 @@ async function bootstrap() {
     }),
   );
 
-  app.use(express.json());
 
   app.use('/api', postRouter);
 
-  app.use(gatewayAuth);
+ 
 
   app.listen(4001, () => {
     logger.info('API Gateway running on port 4001');

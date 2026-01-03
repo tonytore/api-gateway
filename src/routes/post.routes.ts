@@ -7,7 +7,6 @@ const postRouter = Router();
 
 postRouter.use(
   '/posts',
-  requireAuth,
   createProxyMiddleware({
     target: 'http://localhost:4002',
     changeOrigin: true,
